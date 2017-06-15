@@ -1,0 +1,103 @@
+<!--tom cat
+    1.屏幕
+    2.资源加载
+    3.放映机
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TomCat</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            width: 100%;
+            height:100%;
+
+        }
+        #cat{
+            width: 100%;
+            height:100%;
+        }
+        #eat {
+            width: 290px;
+            height:80px;
+            /*background: black;*/
+            position: absolute;
+            top: 600px;
+            left: 350px;
+        }
+        #stomach{
+            width: 290px;
+            height:240px;
+            /*background: black;*/
+            position: absolute;
+            top: 1100px;
+            left: 350px;
+        }
+        #footLeft{
+            width: 60px;
+            height:150px;
+            /*background: black;*/
+            position: absolute;
+            top: 1350px;
+            left: 550px;
+        }
+        #footRight{
+            width: 60px;
+            height:150px;
+            /*background: black;*/
+            position: absolute;
+            top: 1350px;
+            left: 350px;
+        }
+
+
+    </style>
+
+    <script type="text/javascript">
+
+        var time;
+
+//        StartAnimation(80,"drink");
+        function StartAnimation(count,name) {
+            clearInterval(time);
+            var index = 0;
+            <!-- 计时器 -->
+            time = setInterval(function () {
+                var cat = document.getElementById("cat");
+//            alert(1);
+                if(index<count){
+                    index++;
+                    if( index < 10){
+                        index = "0"+index;
+                    }
+                }else{
+                    clearInterval(time);
+                    return;
+                }
+                /*修改图片路径*/
+                cat.src = "img/Animations/"+name+"/"+name+"_"+index+".jpg";
+
+            },90);
+        }
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <img src="img/Animations/angry/angry_00.jpg" id="cat">
+    <div id="eat" onclick="StartAnimation(39, 'eat' )"></div>
+    <div id="stomach" onclick="StartAnimation(33, 'stomach' )"></div>
+    <div id="footLeft" onclick="StartAnimation(29, 'footLeft' )"></div>
+    <div id="footRight" onclick="StartAnimation(29, 'footRight' )"></div>
+
+</body>
+</html>
